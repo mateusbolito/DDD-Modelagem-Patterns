@@ -11,6 +11,6 @@ customer.Adres = addres;
 customer.activate();
 
 //  essa realaçao é de OBJETO-Entidade
-const item1 = new OrderItem("1", "item1", 11);
-const item2 = new OrderItem("2", "item2", 13);
+const item1 = new OrderItem("1", "item1", 11, "item2", 2);
+const item2 = new OrderItem("2", "item2", 13, "item3", 2);
 const order = new Order("1", "122", [item1, item2]);
