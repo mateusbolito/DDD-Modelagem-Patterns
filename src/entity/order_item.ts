@@ -1,4 +1,7 @@
 export default class OrderItem {
+  orderItemTotal() {
+    throw new Error("Method not implemented.");
+  }
   _id: string;
   _name: string;
   _price: number;
