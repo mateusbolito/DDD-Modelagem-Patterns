@@ -1,4 +1,5 @@
 import { Sequelize } from "sequelize";
+import ProductModel from "../db/sequelize/model/product.model";
 
 describe("Product repository tests", () => {
   let sequelize: Sequelize;
@@ -10,9 +11,12 @@ describe("Product repository tests", () => {
       logging: false,
       sync: { force: true },
     });
-
-    afterEach(async () => {
-      await sequelize.close();
+    sequelize.define<ProductModel>("Product", {
+      ProductModel: "Product",
     });
+    await sequelize.sync();
+  });
+  afterEach(async () => {
+    await sequelize.close();
   });
 });
