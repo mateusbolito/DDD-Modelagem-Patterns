@@ -1,13 +1,13 @@
-import Adress from "./entity/adress";
-import Customer from "./entity/customer";
-import Order from "./entity/order";
-import OrderItem from "./entity/order_item";
+import Adress from "./domain/entity/adress";
+import Customer from "./domain/entity/customer";
+import Order from "./domain/entity/order";
+import OrderItem from "./domain/entity/order_item";
 
 // criando relaçao de agregados
 // relaçao - 1 de ID
 let customer = new Customer("123", "mateus");
 const addres = new Adress("rua dois", 2, "sinop-mt", "lote 2");
-customer.Adres = addres;
+customer.Address = addres;
 customer.activate();
 
 //  essa realaçao é de OBJETO-Entidade

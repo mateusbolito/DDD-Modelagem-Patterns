@@ -41,6 +41,9 @@ export default class Customer {
     this._name = name;
     this.validate();
   }
+  changeAddress(address: Adress) {
+    this._address = address;
+  }
 
   activate() {
     if (this._address === undefined) {
@@ -55,7 +58,7 @@ export default class Customer {
   addRewardPoints(points: number) {
     this._rewardPoints += points;
   }
-  set Adres(address: Adress) {
+  set Address(address: Adress) {
     this._address = address;
   }
 }
