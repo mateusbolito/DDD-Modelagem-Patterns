@@ -6,7 +6,7 @@ import { DataType } from "sequelize-typescript";
 
 describe("Product repository tests", () => {
   let sequelize: Sequelize;
-  let Product: any;
+
   beforeEach(async () => {
     sequelize = new Sequelize({
       dialect: "sqlite",
@@ -14,10 +14,10 @@ describe("Product repository tests", () => {
       logging: false,
       sync: { force: true },
     });
-    Product = sequelize.define<ProductModel>("Product", {
+    sequelize.define<ProductModel>("Product", {
       id: {
         primaryKey: true,
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER.UNSIGNED,
       },
       name: {
         type: DataType.STRING,
