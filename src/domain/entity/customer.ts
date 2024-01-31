@@ -42,7 +42,7 @@ export default class Customer {
     this.validate();
   }
   changeAddress(address: Adress) {
-    this._address = address;
+    this.Address = address;
   }
 
   activate() {

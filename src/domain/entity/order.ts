@@ -13,7 +13,9 @@ export default class Order {
     this._total = this.total();
     this.validate();
   }
-
+  get id() {
+    return this._id;
+  }
   validate(): boolean {
     if (this._id.length === 0) {
       throw new Error("id is required");
