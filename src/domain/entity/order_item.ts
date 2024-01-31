@@ -36,4 +36,8 @@ export default class OrderItem {
   get name(): string {
     return this._name;
   }
+
+  get productId(): string {
+    return this._productId;
+  }
 }
