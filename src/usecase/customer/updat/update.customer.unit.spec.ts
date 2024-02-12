@@ -16,3 +16,23 @@ const input = {
     city: "city updated",
   },
 };
+
+const MockRepository = () => {
+  return {
+    create: jest.fn(),
+    findAll: jest.fn(),
+    find: jest.fn().mockReturnValue(Promise.resolve(customer)),
+    updated: jest.fn(),
+  };
+};
+
+describe("unit test for customer update  use case", () => {
+  it("should update a customer", async () => {
+    const customerRepository = MockRepository();
+    const customerUpdateUseCase = new UpdateCustomerUseCase(customerRepository);
+
+    const output = await customerUpdateUseCase.execute(input);
+
+    expect(output).toEqual(input);
+  });
+});
