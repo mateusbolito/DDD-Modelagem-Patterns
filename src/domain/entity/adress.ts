@@ -1,14 +1,14 @@
-export default class Adress {
-  _street: string;
+export default class Address {
+  _street: string = "";
   _number: number = 0;
-  _zip: string;
-  _city: string;
+  _zip: string = "";
+  _city: string = "";
 
-  constructor(_street: string, _number: number, _zip: string, _city: string) {
-    this._street = _street;
-    this._number = _number;
-    this._zip = _zip;
-    this._city = _city;
+  constructor(street: string, number: number, zip: string, city: string) {
+    this._street = street;
+    this._number = number;
+    this._zip = zip;
+    this._city = city;
 
     this.validate();
   }
@@ -20,27 +20,31 @@ export default class Adress {
   get number(): number {
     return this._number;
   }
+
   get zip(): string {
     return this._zip;
   }
+
   get city(): string {
     return this._city;
   }
+
   validate() {
     if (this._street.length === 0) {
-      throw new Error("Please select a street");
+      throw new Error("Street is required");
     }
     if (this._number === 0) {
-      throw new Error("Please select a number");
+      throw new Error("Number is required");
     }
     if (this._zip.length === 0) {
-      throw new Error("Please select a zip");
+      throw new Error("Zip is required");
     }
     if (this._city.length === 0) {
-      throw new Error("Please select a city");
+      throw new Error("City is required");
     }
   }
+
   toString() {
-    return `${this._street} ${this._number} ${this._zip} ${this._city}`;
+    return `${this._street}, ${this._number}, ${this._zip} ${this._city}`;
   }
 }
