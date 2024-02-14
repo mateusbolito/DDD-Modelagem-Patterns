@@ -4,6 +4,7 @@
 import Adress from "./adress";
 
 export default class Customer {
+  [x: string]: any;
   private _id: string;
   private _name: string;
   private _address!: Adress;
@@ -62,5 +63,3 @@ export default class Customer {
     this._address = address;
   }
 }
-
-let customer = new Customer("2334", "22");

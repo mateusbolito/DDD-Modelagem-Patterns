@@ -13,10 +13,23 @@ export default class CustomerYupValidator
           id: yup.string().required("Id is required"),
           name: yup.string().required("Name is required"),
         })
-        .validateSync({
-          id: entity.id,
-          name: entity.name,
+        .validateSync(
+          {
+            id: entity.id,
+            name: entity.name,
+          },
+          {
+            abortEarly: true,
+          }
+        );
+    } catch (error) {
+      const e = error as yup.ValidationError;
+      e.errors.forEach((error) => {
+        entity.notification.addError({
+          context: "customer",
+          message: error,
         });
-    } catch (error) {}
+      });
+    }
   }
 }
